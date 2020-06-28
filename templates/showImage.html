@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>Знаки подписываются в соответсвии с их номерами в ПДД</div>
+<img src="" id="img" alt="Chart">
+
+<script>
+    data = "data:image/jpeg;base64,"+"{{image}}"
+
+    data = data.replace("b&#39;", "") //to get rid of start curly brace code
+    data = data.replace("&#39;", "")  //to get rid of end curly bracecode
+    document.getElementById("img").src = data; // set src
+</script>
+
+</body>
+</html>
