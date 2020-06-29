@@ -11,7 +11,7 @@ import numpy as np
 from data import LABELS_LIST, SIGN_ClASS_COUNT
 
 app = Flask(__name__)
-app.run()
+# app.run()
 
 import urllib.request
 
@@ -20,6 +20,7 @@ f = open("TR6.model", "wb")
 f.write(logo)
 f.close()
 print("all")
+
 
 # Возвращает модель для детекции
 def get_model_instance_segmentation(num_classes):
@@ -70,3 +71,10 @@ def image_work():
     img_str = base64.b64encode(buffered.getvalue())
 
     return render_template('showImage.html', image=img_str)
+
+
+if __name__ == '__main__':
+    # This is used when running locally. Gunicorn is used to run the
+    # application on Google App Engine. See entrypoint in app.yaml.
+    app.run(host='127.0.0.1', port=8080, debug=False)
+# [END gae_flex_quickstart]
